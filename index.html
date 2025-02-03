@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day 23 - Project: SuperFakeStore (APIs IV)</title>
+    <script type="module" src="/src/main.ts"></script>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body
+    class="mx-40 my-6 flex min-h-screen flex-col items-center gap-6 bg-slate-100">
+    <h1 class="text-4xl font-bold tracking-wide text-cyan-900">
+      SuperFakeStore
+    </h1>
+    <header
+      class="sticky top-0 flex w-full flex-col gap-10 rounded-md bg-cyan-900 p-6 text-white">
+      <section id="search-sort-container" class="flex justify-between gap-4">
+        <input
+          type="text"
+          name="search"
+          id="search-product"
+          placeholder="Search for a product"
+          class="flex-3 rounded-md bg-white p-2 text-gray-950" />
+        <select
+          name="sort"
+          id="sort-product"
+          class="flex-1 rounded-md bg-white p-3 text-gray-950">
+          <option value="default">Sort by</option>
+          <option value="price-asc">Price Ascending</option>
+          <option value="price-desc">Price Descending</option>
+          <option value="rating-asc">Rating Ascending</option>
+          <option value="ratng-desc">Rating Descending</option>
+        </select>
+        <button
+          id="shopping-cart"
+          class="relative flex aspect-square cursor-pointer flex-col items-center justify-center rounded-full border-2 border-slate-100 p-2 hover:bg-slate-100">
+          <span
+            id="shopping-cart-count"
+            class="absolute top-0.5 left-3.5 text-sm font-bold text-yellow-300"></span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            class="fill-slate-100 hover:fill-cyan-900">
+            <path
+              d="M10 19.5c0 .829-.672 1.5-1.5 1.5s-1.5-.671-1.5-1.5c0-.828.672-1.5 1.5-1.5s1.5.672 1.5 1.5zm3.5-1.5c-.828 0-1.5.671-1.5 1.5s.672 1.5 1.5 1.5 1.5-.671 1.5-1.5c0-.828-.672-1.5-1.5-1.5zm6.305-15l-3.432 12h-10.428l-3.777-9h-2.168l4.615 11h13.239l3.474-12h1.929l.743-2h-4.195z" />
+          </svg>
+        </button>
+      </section>
+      <section
+        id="category-filter-container"
+        class="flex flex-4 items-center gap-20">
+        <h2 class="text-lg font-semibold">Filter by Category</h2>
+        <ul id="category-list" class="flex grow items-center gap-10"></ul>
+      </section>
+    </header>
+    <main class="w-full">
+      <section id="products-container">
+        <ul id="products-list" class="mx-auto grid grid-cols-4 gap-4"></ul>
+      </section>
+    </main>
+  </body>
+</html>

@@ -1,14 +1,29 @@
 import ky from 'ky';
-import { Product } from './types';
+import { z } from 'zod';
+
+const ProductsSchema = z.array(
+  z.object({
+    id: z.number(),
+    category: z.string(),
+    image: z.string(),
+    price: z.number(),
+    rating: z.object({
+      count: z.number(),
+      rate: z.number(),
+    }),
+    title: z.string(),
+  })
+);
 
 //- PRODUCTS API CALLS
 // Alle Produkte von der API holen
 async function getProducts() {
   try {
-    const productData: Product[] = await ky
+    const productData = await ky
       .get('https://fakestoreapi.com/products')
       .json();
-    return productData;
+    const parsedProductData = ProductsSchema.parse(productData);
+    return parsedProductData;
   } catch (error) {
     console.log('There has been an error: ', error);
   }

@@ -1,7 +1,6 @@
-import { allProducts } from './apiCalls.ts';
+import { allProducts, Product } from './apiCalls.ts';
 import { renderCategories } from './categories.ts';
 import { renderProductCards } from './productCards.ts';
-import { Product } from './types.ts';
 import { filterByCategory, searchProducts } from './productFiltering.ts';
 import { sortByPriceAsc, sortByRatingAsc } from './productSorting.ts';
 import { addToCart, renderCartCount } from './shoppingCart.ts';

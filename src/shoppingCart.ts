@@ -1,4 +1,4 @@
-import { Product } from './types.ts';
+import { Product } from './apiCalls.ts';
 
 // Elemente aus DOM holen
 const cartCountElement = document.querySelector('#shopping-cart-count');

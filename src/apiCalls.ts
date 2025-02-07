@@ -1,19 +1,20 @@
 import ky from 'ky';
 import { z } from 'zod';
 
-const ProductsSchema = z.array(
-  z.object({
-    id: z.number(),
-    category: z.string(),
-    image: z.string(),
-    price: z.number(),
-    rating: z.object({
-      count: z.number(),
-      rate: z.number(),
-    }),
-    title: z.string(),
-  })
-);
+const ProductSchema = z.object({
+  id: z.number(),
+  category: z.string(),
+  image: z.string(),
+  price: z.number(),
+  rating: z.object({
+    count: z.number(),
+    rate: z.number(),
+  }),
+  title: z.string(),
+});
+
+// type Product wird aus dem ProductSchema abgeleitet
+export type Product = z.infer<typeof ProductSchema>;
 
 //- PRODUCTS API CALLS
 // Alle Produkte von der API holen
@@ -22,7 +23,7 @@ async function getProducts() {
     const productData = await ky
       .get('https://fakestoreapi.com/products')
       .json();
-    const parsedProductData = ProductsSchema.parse(productData);
+    const parsedProductData = ProductSchema.array().parse(productData);
     return parsedProductData;
   } catch (error) {
     console.log('There has been an error: ', error);

@@ -1,5 +1,5 @@
 import { shoppingCart } from './shoppingCart.ts';
-import { Product } from './types.ts';
+import { Product } from './apiCalls.ts';
 // DOM-Elemente holen
 const productsContainer = document.querySelector('#products-list');
 

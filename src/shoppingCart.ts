@@ -1,7 +1,7 @@
-import { Product } from "./types.ts";
+import { Product } from './types.ts';
 
 // Elemente aus DOM holen
-const cartCountElement = document.querySelector("#shopping-cart-count");
+const cartCountElement = document.querySelector('#shopping-cart-count');
 
 export const shoppingCart: Product[] = [];
 
